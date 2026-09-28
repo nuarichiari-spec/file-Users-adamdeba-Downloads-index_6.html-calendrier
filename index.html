@@ -316,6 +316,7 @@
   .invite-form input:focus, .invite-form select:focus, .invite-form textarea:focus{ outline:2px solid var(--sky); outline-offset:1px; border-color:transparent; }
   .invite-form input:user-invalid, .invite-form select:user-invalid{ border-color:var(--coral); }
   .invite-form .lbl{ display:inline; }
+  .invite-form .hp{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
   .guest{ border:1px dashed var(--line); border-radius:12px; padding:16px; margin-bottom:14px; background:var(--paper); }
   .guest-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
   .guest-head .gt{ font-family:"DM Mono"; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--navy-3); }
@@ -821,6 +822,11 @@
       </div>
 
       <form class="invite-form" id="inviteForm" method="post" action="invitation.php" novalidate>
+        <div class="hp" aria-hidden="true">
+          <label>Ne pas remplir ce champ
+            <input type="text" name="site_web" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
         <fieldset class="fs">
           <legend>Le partenaire</legend>
           <div class="fgrid">

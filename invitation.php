@@ -11,6 +11,11 @@ const DEST       = 'jeromebrigato@lalogecorse.fr';
 const MAX_GUESTS = 4;
 const SITE       = 'https://lalogecorse.fr';
 
+// Anti-spam : champ piège invisible et limite d'envois par adresse IP.
+const HONEYPOT    = 'site_web';
+const RATE_MAX    = 5;      // demandes envoyées au maximum…
+const RATE_WINDOW = 3600;   // …par fenêtre glissante (secondes), par IP
+
 /* ------------------------------------------------------------------ */
 
 function clean(string $v, int $max = 200): string
@@ -56,12 +61,64 @@ function page(string $title, string $msg, bool $ok): void
 HTML;
 }
 
+/**
+ * Horodatages des envois récents de l'IP courante, stockés dans un fichier
+ * temporaire (IP hachée). Renvoie le handle verrouillé et la liste filtrée.
+ */
+function rate_open(): array
+{
+    $dir = sys_get_temp_dir() . '/lalogecorse-invitation';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0700, true);
+    }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'inconnue';
+    $fh = @fopen($dir . '/' . hash('sha256', $ip) . '.json', 'c+');
+    if (!$fh) {
+        return [null, []];   // stockage indisponible : on ne bloque pas
+    }
+    flock($fh, LOCK_EX);
+    $hits = json_decode((string) stream_get_contents($fh), true);
+    $now  = time();
+    $hits = array_values(array_filter(
+        is_array($hits) ? $hits : [],
+        fn($t) => is_int($t) && $t > $now - RATE_WINDOW
+    ));
+    return [$fh, $hits];
+}
+
+function rate_close($fh, array $hits): void
+{
+    if (!$fh) {
+        return;
+    }
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, json_encode($hits));
+    flock($fh, LOCK_UN);
+    fclose($fh);
+}
+
 /* ------------------------------------------------------------------ */
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     header('Location: ' . SITE);
     exit;
 }
+
+// Champ piège rempli : c'est un robot. On affiche une fausse confirmation
+// pour ne pas l'aider à s'adapter, et rien n'est envoyé.
+if (field(HONEYPOT) !== '') {
+    page('Demande envoyée', 'Merci — votre demande a bien été transmise.', true);
+    exit;
+}
+
+[$rateFh, $rateHits] = rate_open();
+if (count($rateHits) >= RATE_MAX) {
+    rate_close($rateFh, $rateHits);
+    fail('Trop de demandes ont été envoyées depuis votre connexion. Merci de réessayer plus tard '
+        . 'ou d’écrire directement à ' . DEST . '.', 429);
+}
+rate_close($rateFh, $rateHits);
 
 // Champs partenaire
 $societe = field('societe');
@@ -154,7 +211,11 @@ $headers = implode("\r\n", [
 
 $sent = @mail(DEST, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers);
 
-if (!$sent) {
+if ($sent) {
+    [$rateFh, $rateHits] = rate_open();
+    $rateHits[] = time();
+    rate_close($rateFh, $rateHits);
+} else {
     fail('L’envoi a échoué. Écrivez-nous directement à ' . DEST . ' — nous traiterons votre demande.', 500);
 }
 
