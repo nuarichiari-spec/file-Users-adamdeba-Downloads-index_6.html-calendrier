@@ -1174,10 +1174,20 @@
   var rows = document.querySelectorAll('#calendrier tbody tr[data-date]');
   var today = new Date(); today.setHours(0,0,0,0);
   var next = null;
+  var matchSel = document.getElementById('matchSelect');
   rows.forEach(function(tr){
     var d = new Date(tr.getAttribute('data-date'));
     if (!next && d >= today) { next = tr; tr.classList.add('is-next'); }
-    else if (d < today) { tr.classList.add('is-past'); }
+    else if (d < today) {
+      tr.classList.add('is-past');
+      // Un match joué ne peut plus être choisi dans le formulaire d'invitation.
+      if (matchSel) {
+        var prefix = tr.getAttribute('data-matchday') + ' — ';
+        for (var i = matchSel.options.length - 1; i >= 0; i--){
+          if (matchSel.options[i].value.indexOf(prefix) === 0) matchSel.remove(i);
+        }
+      }
+    }
   });
   if (next) {
     var set = function(sel, val){ var el = document.querySelector(sel); if (el && val) el.textContent = val; };
