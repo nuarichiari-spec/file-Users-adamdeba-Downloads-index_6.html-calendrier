@@ -1,0 +1,28 @@
+name: Mise à jour des vidéos
+
+on:
+  schedule:
+    - cron: '17 5 * * *'   # tous les jours vers 7h17 (heure de Paris)
+  workflow_dispatch: {}      # lancement manuel possible depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/update-videos.mjs
+      - name: Enregistrer si la liste a changé
+        run: |
+          if [ -n "$(git status --porcelain data/videos.json)" ]; then
+            git config user.name "videos-bot"
+            git config user.email "videos-bot@users.noreply.github.com"
+            git add data/videos.json
+            git commit -m "Mise à jour automatique des vidéos"
+            git push
+          fi

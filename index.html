@@ -407,6 +407,18 @@
     html{ scroll-behavior:auto; }
     .p-card, .btn, #accessNote{ transition:none; }
   }
+
+  /* Vidéos : bienvenue + résumés et conférences (liste mise à jour automatiquement) */
+  .videos-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-top:28px; }
+  .video-card{ display:flex; flex-direction:column; gap:12px; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:20px; text-decoration:none; color:var(--ink); min-height:170px; box-shadow:var(--shadow); }
+  .video-card:hover{ border-color:var(--navy); }
+  .video-tag{ font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--coral); }
+  .video-title{ font-size:16px; line-height:1.35; flex:1 1 auto; }
+  .video-meta{ font-size:12.5px; color:var(--ink-soft); }
+  .videos-filter{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .videos-filter button{ font:inherit; font-size:14px; padding:10px 18px; border-radius:999px; border:1.5px solid var(--navy); background:transparent; color:var(--navy); cursor:pointer; min-height:44px; }
+  .videos-filter button[aria-pressed="true"]{ background:var(--navy); color:var(--on-navy); }
+  .welcome-video{ width:100%; aspect-ratio:16/9; border-radius:18px; background:#000; display:block; box-shadow:var(--shadow); }
 </style>
 </head>
 <body>
@@ -424,6 +436,7 @@
     <nav class="primary" aria-label="Navigation principale">
       <a class="navlink" href="#affiche">Prochaine affiche</a>
       <a class="navlink" href="#calendrier">Calendrier</a>
+      <a class="navlink" href="#videos">Vidéos</a>
       <a class="navlink" href="#invitation">Inviter</a>
       <a class="navlink" href="#partenaires">Nos partenaires</a>
     </nav>
@@ -818,6 +831,30 @@
         </div>
         <p class="cal-note">Effectifs et photos fournis par TheSportsDB. Les compositions officielles sont publiées par le club le jour du match.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section-cream" id="videos">
+    <div class="wrap section-pad" style="padding-top:0;">
+      <div class="section-head">
+        <span class="eyebrow eyebrow-navy">La loge en images</span>
+        <h2>Bienvenue<br><span class="accent">à la loge.</span></h2>
+        <p>Quinze secondes pour découvrir l’ambiance de La Loge Corse à Jean-Bouin.</p>
+      </div>
+      <video class="welcome-video" src="images/bienvenue.mp4" poster="images/loge-bienvenue.webp" controls muted loop playsinline preload="none" aria-label="Vidéo : Bienvenue à la Loge Corse"></video>
+
+      <div class="section-head" style="margin-top:64px;">
+        <span class="eyebrow eyebrow-navy">Revivre les matchs</span>
+        <h2>Résumés, buts<br><span class="accent">et points presse.</span></h2>
+        <p>Les dernières vidéos des chaînes YouTube officielles du Paris FC et du Stade Français Paris, mises à jour chaque jour.</p>
+      </div>
+      <div class="videos-filter" role="group" aria-label="Type de vidéo">
+        <button type="button" data-filter="all" aria-pressed="true">Tout</button>
+        <button type="button" data-filter="match" aria-pressed="false">Matchs</button>
+        <button type="button" data-filter="presse" aria-pressed="false">Points presse</button>
+      </div>
+      <div class="videos-grid" id="videos-grid" aria-live="polite"></div>
+      <noscript><p>Retrouvez les vidéos sur <a href="https://www.youtube.com/@ParisFC/videos">la chaîne du Paris FC</a> et <a href="https://www.youtube.com/channel/UC9HI0fd8SE_IfSaFkVKfPLA">celle du Stade Français Paris</a>.</p></noscript>
     </div>
   </section>
 
@@ -1404,6 +1441,37 @@
       if (bad){ bad.focus(); bad.scrollIntoView({behavior:'smooth', block:'center'}); }
     }
   });
+})();
+</script>
+<script>
+/* Liste des vidéos : lit data/videos.json (mis à jour chaque jour par .github/workflows/update-videos.yml) */
+(function(){
+  var grid = document.getElementById('videos-grid');
+  if(!grid) return;
+  var data = [], filter = 'all';
+  var MOIS = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  function render(){
+    grid.textContent = '';
+    var list = data.filter(function(v){ return filter === 'all' || v.type === filter; });
+    if(!list.length){ var p = document.createElement('p'); p.textContent = 'Aucune vidéo pour le moment.'; grid.appendChild(p); return; }
+    list.forEach(function(v){
+      var a = document.createElement('a'); a.className = 'video-card'; a.href = v.url; a.target = '_blank'; a.rel = 'noopener';
+      var tag = document.createElement('span'); tag.className = 'video-tag'; tag.textContent = v.type === 'presse' ? 'Point presse' : 'Match';
+      var t = document.createElement('span'); t.className = 'video-title'; t.textContent = v.titre;
+      var d = new Date(v.date + 'T12:00:00');
+      var m = document.createElement('span'); m.className = 'video-meta'; m.textContent = v.source + ' · ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear() + ' · YouTube ↗';
+      a.appendChild(tag); a.appendChild(t); a.appendChild(m); grid.appendChild(a);
+    });
+  }
+  document.querySelectorAll('.videos-filter button').forEach(function(b){
+    b.addEventListener('click', function(){
+      filter = b.getAttribute('data-filter');
+      document.querySelectorAll('.videos-filter button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      render();
+    });
+  });
+  fetch('data/videos.json').then(function(r){ return r.json(); }).then(function(j){ data = j.videos || []; render(); })
+    .catch(function(){ grid.textContent = 'Les vidéos sont momentanément indisponibles.'; });
 })();
 </script>
 </body>

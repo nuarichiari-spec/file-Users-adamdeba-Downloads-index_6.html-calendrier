@@ -1,0 +1,61 @@
+{
+  "maj": "2026-10-07T16:00:02.822Z",
+  "videos": [
+    {
+      "id": "Ana8_0VtWBM",
+      "titre": "UNE VICTOIRE NETTE I PARIS FC - RC LENS I APL",
+      "date": "2026-10-05",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=Ana8_0VtWBM",
+      "type": "match"
+    },
+    {
+      "id": "K2-RU2LeTHE",
+      "titre": "Hamari Traoré, leader de vestiaire, analyse après Paris FC-OL #parisfc  #ligue1 #olympiquelyonnais",
+      "date": "2026-10-01",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=K2-RU2LeTHE",
+      "type": "match"
+    },
+    {
+      "id": "AQPLNujCkiE",
+      "titre": "\"Pablo tu vas marquer\" les mots de Liam Rosenior à la mi-temps de Paris FC - RC Strasbourg Alsace",
+      "date": "2026-09-28",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=AQPLNujCkiE",
+      "type": "match"
+    },
+    {
+      "id": "pGsCVH2XX6E",
+      "titre": "J4 - Le Grand Format de Stade Français Paris / Lyon",
+      "date": "2026-09-28",
+      "source": "Stade Français",
+      "url": "https://www.youtube.com/watch?v=pGsCVH2XX6E",
+      "type": "match"
+    },
+    {
+      "id": "NTL_bWUUDAc",
+      "titre": "J1 - Le Grand Format de Stade Français Paris / Perpignan",
+      "date": "2026-09-07",
+      "source": "Stade Français",
+      "url": "https://www.youtube.com/watch?v=NTL_bWUUDAc",
+      "type": "match"
+    },
+    {
+      "id": "GHzCmaPDaEI",
+      "titre": "Barrage - Le Grand Format de Stade Français Paris / La Rochelle",
+      "date": "2026-06-15",
+      "source": "Stade Français",
+      "url": "https://www.youtube.com/watch?v=GHzCmaPDaEI",
+      "type": "match"
+    },
+    {
+      "id": "2gGqqNR76ns",
+      "titre": "🎙 (𝗧𝗢𝗣 𝟭𝟰, Barrage ) Stade Français Paris/ La Rochelle : La conférence de presse d'avant match ⚡️⚡️",
+      "date": "2026-06-12",
+      "source": "Stade Français",
+      "url": "https://www.youtube.com/watch?v=2gGqqNR76ns",
+      "type": "presse"
+    }
+  ]
+}
