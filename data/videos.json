@@ -1,6 +1,14 @@
 {
-  "maj": "2026-10-09T11:54:50.352Z",
+  "maj": "2026-10-10T11:11:26.796Z",
   "videos": [
+    {
+      "id": "25csj2PBs6g",
+      "titre": "Point presse avant Lorient (J6) | Liam Rosenior | Adama Camara | Ligue 1 McDonald's",
+      "date": "2026-10-09",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=25csj2PBs6g",
+      "type": "presse"
+    },
     {
       "id": "Ana8_0VtWBM",
       "titre": "UNE VICTOIRE NETTE I PARIS FC - RC LENS I APL",
@@ -15,14 +23,6 @@
       "date": "2026-10-01",
       "source": "Paris FC",
       "url": "https://www.youtube.com/watch?v=K2-RU2LeTHE",
-      "type": "match"
-    },
-    {
-      "id": "AQPLNujCkiE",
-      "titre": "\"Pablo tu vas marquer\" les mots de Liam Rosenior à la mi-temps de Paris FC - RC Strasbourg Alsace",
-      "date": "2026-09-28",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=AQPLNujCkiE",
       "type": "match"
     },
     {
