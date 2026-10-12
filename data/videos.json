@@ -1,6 +1,14 @@
 {
-  "maj": "2026-10-11T11:25:07.470Z",
+  "maj": "2026-10-12T13:11:25.048Z",
   "videos": [
+    {
+      "id": "C1Ca4lTXAf8",
+      "titre": "J6 - Le Grand Format Stade Français Paris / Montpellier",
+      "date": "2026-10-12",
+      "source": "Stade Français",
+      "url": "https://www.youtube.com/watch?v=C1Ca4lTXAf8",
+      "type": "match"
+    },
     {
       "id": "25csj2PBs6g",
       "titre": "Point presse avant Lorient (J6) | Liam Rosenior | Adama Camara | Ligue 1 McDonald's",
@@ -48,14 +56,6 @@
       "source": "Stade Français",
       "url": "https://www.youtube.com/watch?v=GHzCmaPDaEI",
       "type": "match"
-    },
-    {
-      "id": "2gGqqNR76ns",
-      "titre": "🎙 (𝗧𝗢𝗣 𝟭𝟰, Barrage ) Stade Français Paris/ La Rochelle : La conférence de presse d'avant match ⚡️⚡️",
-      "date": "2026-06-12",
-      "source": "Stade Français",
-      "url": "https://www.youtube.com/watch?v=2gGqqNR76ns",
-      "type": "presse"
     }
   ]
 }
