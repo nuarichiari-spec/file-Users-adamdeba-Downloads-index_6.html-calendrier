@@ -1,6 +1,22 @@
 {
-  "maj": "2026-10-16T09:51:14.428Z",
+  "maj": "2026-10-17T09:22:50.405Z",
   "videos": [
+    {
+      "id": "4JAII3X1UgQ",
+      "titre": "Diego Coppola en conférence de presse avant Rennes (J7) : \"on n'a rien fait encore\"",
+      "date": "2026-10-16",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=4JAII3X1UgQ",
+      "type": "presse"
+    },
+    {
+      "id": "uVJHlpNLpwQ",
+      "titre": "Liam Rosenior et Diego Coppola dans La Conf' ! Avant Paris FC - Stade Rennais (J7 L1 McDonald's)",
+      "date": "2026-10-16",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=uVJHlpNLpwQ",
+      "type": "presse"
+    },
     {
       "id": "C1Ca4lTXAf8",
       "titre": "J6 - Le Grand Format Stade Français Paris / Montpellier",
