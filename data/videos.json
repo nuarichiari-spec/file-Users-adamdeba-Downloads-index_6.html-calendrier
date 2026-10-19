@@ -1,6 +1,14 @@
 {
-  "maj": "2026-10-18T09:38:52.002Z",
+  "maj": "2026-10-19T10:47:33.991Z",
   "videos": [
+    {
+      "id": "98ld5dxqav0",
+      "titre": "DEUX DOUBLÉS, UN STADE EN FUSION | résumé Paris FC - Rennes (4-3) | J7 Ligue 1 McDonald's",
+      "date": "2026-10-19",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=98ld5dxqav0",
+      "type": "match"
+    },
     {
       "id": "4JAII3X1UgQ",
       "titre": "Diego Coppola en conférence de presse avant Rennes (J7) : \"on n'a rien fait encore\"",
@@ -39,14 +47,6 @@
       "date": "2026-10-05",
       "source": "Paris FC",
       "url": "https://www.youtube.com/watch?v=Ana8_0VtWBM",
-      "type": "match"
-    },
-    {
-      "id": "K2-RU2LeTHE",
-      "titre": "Hamari Traoré, leader de vestiaire, analyse après Paris FC-OL #parisfc  #ligue1 #olympiquelyonnais",
-      "date": "2026-10-01",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=K2-RU2LeTHE",
       "type": "match"
     },
     {
