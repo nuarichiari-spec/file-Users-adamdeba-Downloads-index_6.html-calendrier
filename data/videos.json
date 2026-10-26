@@ -1,6 +1,14 @@
 {
-  "maj": "2026-10-25T09:49:32.379Z",
+  "maj": "2026-10-26T11:08:05.525Z",
   "videos": [
+    {
+      "id": "5HoWdFEi0Sk",
+      "titre": "Résumé RC Lens - Paris FC - Rennes (2-1) | J8 Ligue 1 McDonald's",
+      "date": "2026-10-26",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=5HoWdFEi0Sk",
+      "type": "match"
+    },
     {
       "id": "DwLqEt4DDfc",
       "titre": "Liam Rosenior et Luca Koleosho dans la conf' avant Lens",
@@ -42,14 +50,6 @@
       "type": "match"
     },
     {
-      "id": "25csj2PBs6g",
-      "titre": "Point presse avant Lorient (J6) | Liam Rosenior | Adama Camara | Ligue 1 McDonald's",
-      "date": "2026-10-09",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=25csj2PBs6g",
-      "type": "presse"
-    },
-    {
       "id": "pGsCVH2XX6E",
       "titre": "J4 - Le Grand Format de Stade Français Paris / Lyon",
       "date": "2026-09-28",
@@ -63,14 +63,6 @@
       "date": "2026-09-07",
       "source": "Stade Français",
       "url": "https://www.youtube.com/watch?v=NTL_bWUUDAc",
-      "type": "match"
-    },
-    {
-      "id": "GHzCmaPDaEI",
-      "titre": "Barrage - Le Grand Format de Stade Français Paris / La Rochelle",
-      "date": "2026-06-15",
-      "source": "Stade Français",
-      "url": "https://www.youtube.com/watch?v=GHzCmaPDaEI",
       "type": "match"
     }
   ]
