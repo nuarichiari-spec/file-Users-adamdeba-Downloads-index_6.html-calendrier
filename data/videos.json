@@ -1,6 +1,14 @@
 {
-  "maj": "2026-10-30T11:24:34.357Z",
+  "maj": "2026-10-31T10:56:02.878Z",
   "videos": [
+    {
+      "id": "8dAJ-LpxDQ8",
+      "titre": "La conférence de presse avant Monaco (J9) | Liam Rosenior - Lassine Sinayoko",
+      "date": "2026-10-30",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=8dAJ-LpxDQ8",
+      "type": "presse"
+    },
     {
       "id": "5HoWdFEi0Sk",
       "titre": "Résumé RC Lens - Paris FC - Rennes (2-1) | J8 Ligue 1 McDonald's",
@@ -15,30 +23,6 @@
       "date": "2026-10-23",
       "source": "Paris FC",
       "url": "https://www.youtube.com/watch?v=DwLqEt4DDfc",
-      "type": "presse"
-    },
-    {
-      "id": "98ld5dxqav0",
-      "titre": "DEUX DOUBLÉS, UN STADE EN FUSION | résumé Paris FC - Rennes (4-3) | J7 Ligue 1 McDonald's",
-      "date": "2026-10-19",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=98ld5dxqav0",
-      "type": "match"
-    },
-    {
-      "id": "4JAII3X1UgQ",
-      "titre": "Diego Coppola en conférence de presse avant Rennes (J7) : \"on n'a rien fait encore\"",
-      "date": "2026-10-16",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=4JAII3X1UgQ",
-      "type": "presse"
-    },
-    {
-      "id": "uVJHlpNLpwQ",
-      "titre": "Liam Rosenior et Diego Coppola dans La Conf' ! Avant Paris FC - Stade Rennais (J7 L1 McDonald's)",
-      "date": "2026-10-16",
-      "source": "Paris FC",
-      "url": "https://www.youtube.com/watch?v=uVJHlpNLpwQ",
       "type": "presse"
     },
     {
