@@ -1,6 +1,14 @@
 {
-  "maj": "2026-11-26T15:18:21.993Z",
+  "maj": "2026-11-27T15:06:35.810Z",
   "videos": [
+    {
+      "id": "IBTq1wd6_mw",
+      "titre": "Le point presse avant Brest (J12)",
+      "date": "2026-11-26",
+      "source": "Paris FC",
+      "url": "https://www.youtube.com/watch?v=IBTq1wd6_mw",
+      "type": "presse"
+    },
     {
       "id": "D3E2sTAO2pM",
       "titre": "LE DERBY EST PARISIEN ! | Résumé Paris FC - FC Fleury 91 (2-1) | J10 Arkema Première Ligue",
